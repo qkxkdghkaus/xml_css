@@ -136,7 +136,7 @@ int jumsu = 85; // 예시를 위한 초기화
 if (jumsu > 80 && jumsu <= 90) {
     // 조건 만족 시 실행할 내용
 }
-        ]]></Code><Explanation>`&&` 연산자는 '그리고'(AND)를 의미합니다.</Explanation></Answer>
+       ]]></Code><Explanation>`&amp;&amp;` 연산자는 '그리고'(AND)를 의미합니다.</Explanation></Answer>
       </SubQuestion>
       <SubQuestion id="3) 홀수 판별 및 출력">
         <Answer type="code"><Code language="java"><![CDATA[
