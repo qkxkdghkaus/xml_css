@@ -196,7 +196,7 @@ System.out.println(); // 모든 출력 후 줄바꿈
           </Step>
           <Step id="반복 조건 설정">
               <Requirement>k가 100 미만인 동안 반복을 계속한다.</Requirement>
-              <Interpretation>`while` 문의 조건식으로 `k < 100` 을 사용합니다: `while (k < 100)`</Interpretation>
+             <Interpretation>`while` 문의 조건식으로 `k &lt; 100` 을 사용합니다: `while (k &lt; 100)`</Interpretation>
           </Step>
           <Step id="몸통 및 증감 처리">
               <Requirement>반복문 몸통 안에서 현재 k 값을 출력하고, 그 다음 k 값을 4 증가시킨다.</Requirement>
