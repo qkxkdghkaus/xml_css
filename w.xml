@@ -55,11 +55,11 @@
         </Step>
         <Step id="변수 선언 및 초기화">
           <Requirement>필요한 변수들(a, y, hi)을 선언하고 적절히 초기화한다. 변수명은 수정 가능하다.</Requirement>
-          <Interpretation>조건 'a >= 3'과 나눗셈 결과를 저장할 'y'를 고려하면, `a`는 정수형(`int` 또는 `long`), `y`는 실수형(`float` 또는 `double`)으로 선언하는 것이 적합해 보입니다. 문자열 'hi'는 `String` 타입으로 선언하고 초기화합니다. 오류 예시의 잘못된 변수명(`$a#`)이나 타입(`string`)은 사용하지 않습니다. 예를 들어, `int a = 12; double y = 0.0; String hi = "안녕";` 과 같이 선언 및 초기화 할 수 있습니다.</Interpretation>
+          <Interpretation>조건 'a &gt;= 3'과 나눗셈 결과를 저장할 'y'를 고려하면, `a`는 정수형(`int` 또는 `long`), `y`는 실수형(`float` 또는 `double`)으로 선언하는 것이 적합해 보입니다. 문자열 'hi'는 `String` 타입으로 선언하고 초기화합니다. 오류 예시의 잘못된 변수명(`$a#`)이나 타입(`string`)은 사용하지 않습니다. 예를 들어, `int a = 12; double y = 0.0; String hi = "안녕";` 과 같이 선언 및 초기화 할 수 있습니다.</Interpretation>
         </Step>
         <Step id="조건문 및 계산">
           <Requirement>변수 a의 값이 3 이상인지 확인하고, 참이면 a를 4로 나눈 결과를 y에 저장한다.</Requirement>
-          <Interpretation>올바른 `if`문 구문을 사용합니다 (`if (a >= 3) { ... }`). 세미콜론(`;`)을 조건문 뒤에 붙이지 않도록 주의합니다. 나눗셈 결과가 실수가 되도록 `a`나 `4`를 실수형으로 취급해야 합니다 (`y = (double)a / 4.0;` 또는 `y = a / 4.0;`).</Interpretation>
+          <Interpretation>올바른 `if`문 구문을 사용합니다 (`if (a &gt;= 3) { ... }`). 세미콜론(`;`)을 조건문 뒤에 붙이지 않도록 주의합니다. 나눗셈 결과가 실수가 되도록 `a`나 `4`를 실수형으로 취급해야 합니다 (`y = (double)a / 4.0;` 또는 `y = a / 4.0;`).</Interpretation>
         </Step>
         <Step id="출력">
           <Requirement>문자열 hi의 값과 변수 y의 값을 함께 화면에 출력한다.</Requirement>
@@ -78,8 +78,8 @@
             <Solution>`long a = 12;` (변수명 수정)</Solution>
           </SubPart>
           <SubPart id="3">
-            <Error>`if(a# > 3); y = a2/4:` : 변수명 `a#`, `a2` 부적절, `if` 조건문 뒤 세미콜론 오류, 끝에 불필요한 `:` 사용, 정수 나눗셈 가능성.</Error>
-            <Solution>`if (a >= 3) { y = (double)a / 4.0; }` (변수명 수정 및 올바른 `if` 구문, 실수 나눗셈 처리)</Solution>
+            <Error>`if(a# &gt; 3); y = a2/4:` : 변수명 `a#`, `a2` 부적절, `if` 조건문 뒤 세미콜론 오류, 끝에 불필요한 `:` 사용, 정수 나눗셈 가능성.</Error>
+            <Solution>`if (a &gt;= 3) { y = (double)a / 4.0; }` (변수명 수정 및 올바른 `if` 구문, 실수 나눗셈 처리)</Solution>
           </SubPart>
           <SubPart id="4">
             <Error>`System.out.print(Hi, "" "", y);` : `print` 메소드는 여러 인자를 쉼표로 받아 출력하지 않음. 문자열 연결 필요.</Error>
@@ -136,7 +136,7 @@ int jumsu = 85; // 예시를 위한 초기화
 if (jumsu > 80 && jumsu <= 90) {
     // 조건 만족 시 실행할 내용
 }
-       ]]></Code><Explanation>`&amp;&amp;` 연산자는 '그리고'(AND)를 의미합니다.</Explanation></Answer>
+        ]]></Code><Explanation>`&amp;&amp;` 연산자는 '그리고'(AND)를 의미합니다.</Explanation></Answer>
       </SubQuestion>
       <SubQuestion id="3) 홀수 판별 및 출력">
         <Answer type="code"><Code language="java"><![CDATA[
@@ -163,7 +163,7 @@ if (m != 80) { // '같지 않다' 비교 연산자 != 사용
       <InterpretationSteps>
           <Step id="반복 조건 설정">
               <Requirement>10부터 시작하여 100 미만까지 반복한다.</Requirement>
-            <Interpretation>`for` 문의 초기값은 `k=10`, 반복 조건은 `k &lt; 100` 으로 설정합니다.</Interpretation>
+              <Interpretation>`for` 문의 초기값은 `k=10`, 반복 조건은 `k &lt; 100` 으로 설정합니다.</Interpretation>
           </Step>
           <Step id="증가 방식 설정">
               <Requirement>값을 4씩 증가시킨다.</Requirement>
@@ -196,7 +196,7 @@ System.out.println(); // 모든 출력 후 줄바꿈
           </Step>
           <Step id="반복 조건 설정">
               <Requirement>k가 100 미만인 동안 반복을 계속한다.</Requirement>
-             <Interpretation>`while` 문의 조건식으로 `k &lt; 100` 을 사용합니다: `while (k &lt; 100)`</Interpretation>
+              <Interpretation>`while` 문의 조건식으로 `k &lt; 100` 을 사용합니다: `while (k &lt; 100)`</Interpretation>
           </Step>
           <Step id="몸통 및 증감 처리">
               <Requirement>반복문 몸통 안에서 현재 k 값을 출력하고, 그 다음 k 값을 4 증가시킨다.</Requirement>
@@ -227,7 +227,7 @@ System.out.println(); // 모든 출력 후 줄바꿈
 [3] 7개의 연속된 기억공간을 생성하고 이의 레퍼런스 값을 [2]의 m에 넣는다.
 [4] 12, 98, 33, 24, 65, 77, 42의 값을 순서대로 [3]의 배열에 저장
 [5] 모든 값을 출력(배열크기에 대한 메소드 이용)
-[6] for 문을 이용하여 위 [4]의 배열 중, 50 이상인 값을 다음과 같이 출력하는 코딩 (형식: 98-65-77- @fin@)
+[6] for 문을 이용하여 위 [4]의 배열 중, 50 이상인 값을 다음과 같이 출력하는 코딩 (형식: 98-65-77-55- @fin@)
       </Question>
       <InterpretationSteps>
           <Step id="[1] 클래스/메인 메소드">
@@ -248,11 +248,11 @@ System.out.println(); // 모든 출력 후 줄바꿈
           </Step>
           <Step id="[5] 전체 값 출력">
               <Requirement>배열 `m`의 모든 값을 출력. 배열 크기는 `length` 속성을 이용.</Requirement>
-              <Interpretation>`for` 문과 `m.length`를 사용하여 배열 전체를 순회하며 각 요소 `m[i]`를 출력합니다. 예를 들어 `for (int i = 0; i < m.length; i++) { System.out.print(m[i] + " "); }` 와 같이 할 수 있습니다.</Interpretation>
+              <Interpretation>`for` 문과 `m.length`를 사용하여 배열 전체를 순회하며 각 요소 `m[i]`를 출력합니다. 예를 들어 `for (int i = 0; i &lt; m.length; i++) { System.out.print(m[i] + " "); }` 와 같이 할 수 있습니다.</Interpretation>
           </Step>
           <Step id="[6] 조건부 출력">
               <Requirement>`for` 문으로 배열 `m`을 순회하며 50 이상인 값을 찾아 지정된 형식(값-값-...)으로 출력하고, 마지막에 `@fin@`를 붙인다.</Requirement>
-              <Interpretation>배열을 순회하며 `if (m[i] >= 50)` 조건을 확인합니다. 참일 경우 `System.out.print(m[i] + "-");` 와 같이 출력합니다. 모든 반복이 끝난 후 `@fin@`를 출력합니다 (`System.out.print("@fin@");`). 마지막 요소 뒤의 `-`를 제거하려면 추가적인 로직(예: 첫 번째 출력인지 확인)이 필요하지만, 문제의 출력 예시(`98-65-77-55-@fin@`)는 마지막 값 뒤에도 `-`가 있는 형태이므로 그대로 구현해도 될 것 같습니다.</Interpretation>
+              <Interpretation>배열을 순회하며 `if (m[i] &gt;= 50)` 조건을 확인합니다. 참일 경우 `System.out.print(m[i] + "-");` 와 같이 출력합니다. 모든 반복이 끝난 후 `@fin@`를 출력합니다 (`System.out.print("@fin@");`). 마지막 요소 뒤의 `-`를 제거하려면 추가적인 로직(예: 첫 번째 출력인지 확인)이 필요하지만, 문제의 출력 예시(`98-65-77-55-@fin@`)는 마지막 값 뒤에도 `-`가 있는 형태이므로 그대로 구현해도 될 것 같습니다.</Interpretation>
           </Step>
       </InterpretationSteps>
       <Answer type="code">
@@ -362,7 +362,7 @@ System.out.println(); // 줄바꿈
           </Step>
           <Step id="배열 순회 및 조건 확인">
               <Requirement>배열 `m`의 모든 요소를 확인하며, 값이 30 이상인지 검사한다.</Requirement>
-              <Interpretation>`for`문 (일반 또는 for-each)으로 배열을 순회합니다. 각 요소 `value`에 대해 `if (value >= 30)` 조건을 확인합니다.</Interpretation>
+              <Interpretation>`for`문 (일반 또는 for-each)으로 배열을 순회합니다. 각 요소 `value`에 대해 `if (value &gt;= 30)` 조건을 확인합니다.</Interpretation>
           </Step>
           <Step id="갯수 증가">
               <Requirement>조건을 만족하는 요소를 찾을 때마다 갯수 변수의 값을 1 증가시킨다.</Requirement>
@@ -546,7 +546,7 @@ public class MyTest {
       <InterpretationSteps>
           <Step id="오버로딩 개념">
               <Requirement>기존 생성자(`Hello(int a, int b)`)와 다른 매개변수 목록을 가지는 새로운 생성자를 `Hello` 클래스에 추가한다.</Requirement>
-              <Interpretation>이는 **생성자 오버로딩(Constructor Overloading)**에 해당합니다. 같은 이름의 생성자를 여러 개 정의하되, 매개변수의 개수나 타입이 달라야 합니다.</Interpretation>
+              <Interpretation>이는 **생성자 오버로딩(Constructor Overloading)**에 해당합니다. 같은 이름의 생성자를 여러 개 정의하되, 매개변수의 개수나 타입 또는 순서가 달라야 합니다.</Interpretation>
           </Step>
            <Step id="새 생성자 정의">
               <Requirement>새 생성자는 정수형 매개변수 `a` 하나만 받고, 내부적으로 필드 `a`에는 전달받은 값을, 필드 `b`에는 고정값 7을 할당한다.</Requirement>
@@ -625,7 +625,7 @@ public class MyTest {
 
         // [3]의 내용
         Hello test2 = new Hello(4, 7); // a=4, b=7 사용
-        test2.showSum(); // "4 + 7 = 11" 출력 예상
+        test2.showSum(); // "4 + 7 = 11" 출력 예상 (문제 예시 "4 + 5 = 9"와 다름)
 
         // [5]-① test3 객체 추가 (a=1), 오버로딩된 생성자 사용
         Hello test3 = new Hello(1); // b는 자동으로 7이 됨
