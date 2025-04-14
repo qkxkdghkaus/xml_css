@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="s.css"?>
+<ExamSolutions>
+  <ProblemGroup name="I. 기초 문제">
+
+    <Problem number="I-[1]">
+      <Question>[1] 기본 데이터형을 모두 나열하고, 어떤 데이터형을 담는지, 그리고 확보되는 기억 공간의 크기가 얼마인지를 표로 보여라</Question>
+      <Answer type="table">
+        <Explanation>자바 언어에서 기본적으로 제공하는 여덟 가지 원시 자료형(primitive data types)과 그 특성을 정리한 표입니다.</Explanation>
+        <Table>
+          <Row header="true">
+            <Cell>데이터형</Cell>
+            <Cell>담는 내용</Cell>
+            <Cell>기억공간 크기(byte)</Cell>
+            <Cell>값의 범위(대략)</Cell>
+          </Row>
+          <Row><Cell>byte</Cell><Cell>정수</Cell><Cell>1</Cell><Cell>-128 ~ 127</Cell></Row>
+          <Row><Cell>short</Cell><Cell>정수</Cell><Cell>2</Cell><Cell>-32,768 ~ 32,767</Cell></Row>
+          <Row><Cell>int</Cell><Cell>정수(기본)</Cell><Cell>4</Cell><Cell>약 -21억 ~ 21억</Cell></Row>
+          <Row><Cell>long</Cell><Cell>정수(큼)</Cell><Cell>8</Cell><Cell>매우 큰 범위</Cell></Row>
+          <Row><Cell>float</Cell><Cell>실수</Cell><Cell>4</Cell><Cell>±3.4e-38 ~ ±3.4e+38</Cell></Row>
+          <Row><Cell>double</Cell><Cell>실수(기본)</Cell><Cell>8</Cell><Cell>±1.7e-308 ~ ±1.7e+308</Cell></Row>
+          <Row><Cell>char</Cell><Cell>문자(유니코드)</Cell><Cell>2</Cell><Cell>0 ~ 65,535</Cell></Row>
+          <Row><Cell>boolean</Cell><Cell>논리(참/거짓)</Cell><Cell>1 (이론상)</Cell><Cell>true, false</Cell></Row>
+        </Table>
+      </Answer>
+    </Problem>
+
+    <Problem number="I-[2]">
+      <Question>[2] IDE, JVM, JDK, WORA, API는 무엇인가</Question>
+      <Answer type="definitions">
+        <Explanation>자바 및 일반적인 소프트웨어 개발과 관련된 주요 용어들의 의미를 설명합니다.</Explanation>
+        <Definition term="IDE">통합 개발 환경(Integrated Development Environment). 코드를 작성하는 편집기, 오류를 잡는 디버거, 코드를 기계어로 바꾸는 컴파일러 등 프로그램 개발에 필요한 여러 도구들을 하나로 모아 편리하게 제공하는 소프트웨어입니다.</Definition>
+        <Definition term="JVM">자바 가상 기계(Java Virtual Machine). 자바로 작성되어 컴파일된 코드(바이트코드)를 어떤 컴퓨터 운영체제에서든 실행될 수 있도록 중간에서 해석하고 실행시켜주는 가상의 컴퓨터입니다.</Definition>
+        <Definition term="JDK">자바 개발 키트(Java Development Kit). 자바 언어로 프로그램을 개발하는 데 필요한 모든 도구들(JVM, 컴파일러, API 라이브러리 등)을 모아놓은 것입니다.</Definition>
+        <Definition term="WORA">Write Once, Run Anywhere. "한 번 작성하면, 어디서든 실행된다"는 뜻으로, JVM이 설치되어 있다면 운영체제가 달라도 동일한 자바 프로그램이 수정 없이 실행될 수 있다는 자바 언어의 중요한 특징을 나타냅니다.</Definition>
+        <Definition term="API">응용 프로그램 프로그래밍 인터페이스(Application Programming Interface). 어떤 기능(예: 파일 읽기, 화면 그리기)을 프로그래머가 쉽게 사용할 수 있도록 미리 정해진 방법이나 명령어들의 집합입니다. 자바에서는 JDK가 많은 표준 API들을 제공합니다.</Definition>
+      </Answer>
+    </Problem>
+
+    <Problem number="I-[3]">
+      <Question>
+[3] 다음 구문이 문법적으로 에러가 나지 않도록 재작성 하시오.
+(주어진 표 형식의 내용은 오류가 있는 코드 예시와 실행해야 할 내용을 나타내는 것으로 해석됨)
+* 오류 예시 관련 부분: `float y;`, `string Hi = '안녕';`, `long $a#=12$:`, `if(a# > 3); y = a2/4:`, `System.out.print(Hi, "" "", y);`
+* 실행 내용 관련 부분:
+  "1) 변수에 있는 값이 3 이상이면 4로 나눈다."
+  "2) hi에 저장된 문자열과 위 1)의 값을 화면 출력한다."
+  "* 필요한 경우 변수명은 자유로이 수정 가능"
+      </Question>
+      <InterpretationSteps>
+        <Step id="요구사항 분석">
+          <Requirement>주어진 오류 예시들을 참고하여, "어떤 변수(가칭 a)의 값이 3 이상이면 그 값을 4로 나눈 결과를 다른 변수(가칭 y)에 저장하고, 특정 문자열(가칭 hi)과 계산된 y 값을 함께 출력"하는 자바 코드를 문법 오류 없이 작성한다.</Requirement>
+          <Interpretation>오류 예시들은 자바 문법에 맞지 않는 부분들을 보여주며, 이를 피해 올바른 코드를 작성하는 것이 목표입니다. 변수 선언, 조건문 작성, 문자열 처리, 출력 방식에 주의해야 합니다.</Interpretation>
+        </Step>
+        <Step id="변수 선언 및 초기화">
+          <Requirement>필요한 변수들(a, y, hi)을 선언하고 적절히 초기화한다. 변수명은 수정 가능하다.</Requirement>
+          <Interpretation>조건 'a >= 3'과 나눗셈 결과를 저장할 'y'를 고려하면, `a`는 정수형(`int` 또는 `long`), `y`는 실수형(`float` 또는 `double`)으로 선언하는 것이 적합해 보입니다. 문자열 'hi'는 `String` 타입으로 선언하고 초기화합니다. 오류 예시의 잘못된 변수명(`$a#`)이나 타입(`string`)은 사용하지 않습니다. 예를 들어, `int a = 12; double y = 0.0; String hi = "안녕";` 과 같이 선언 및 초기화 할 수 있습니다.</Interpretation>
+        </Step>
+        <Step id="조건문 및 계산">
+          <Requirement>변수 a의 값이 3 이상인지 확인하고, 참이면 a를 4로 나눈 결과를 y에 저장한다.</Requirement>
+          <Interpretation>올바른 `if`문 구문을 사용합니다 (`if (a >= 3) { ... }`). 세미콜론(`;`)을 조건문 뒤에 붙이지 않도록 주의합니다. 나눗셈 결과가 실수가 되도록 `a`나 `4`를 실수형으로 취급해야 합니다 (`y = (double)a / 4.0;` 또는 `y = a / 4.0;`).</Interpretation>
+        </Step>
+        <Step id="출력">
+          <Requirement>문자열 hi의 값과 변수 y의 값을 함께 화면에 출력한다.</Requirement>
+          <Interpretation>표준 출력 메소드 `System.out.print()` 또는 `System.out.println()`을 사용합니다. 여러 값을 이어서 출력하려면 문자열 연결 연산자(`+`)를 사용해야 합니다. 오류 예시처럼 쉼표로 구분하여 여러 인자를 전달하는 방식은 일반적인 `print` 메소드에는 맞지 않습니다 (printf는 가능). 예를 들어, `System.out.println(hi + " 결과: " + y);` 와 같이 작성할 수 있습니다.</Interpretation>
+        </Step>
+      </InterpretationSteps>
+      <SubQuestion id="오류 분석 및 해결 방안">
+        <Answer type="explanation">
+          <Explanation>제시된 각 구문의 오류 및 수정 방향은 다음과 같습니다.</Explanation>
+          <SubPart id="1">
+            <Error>`string Hi = '안녕';` : `string`은 잘못된 타입(정확히는 `String`), 작은따옴표는 문자열에 사용 불가.</Error>
+            <Solution>`String Hi = "안녕";`</Solution>
+          </SubPart>
+          <SubPart id="2">
+            <Error>`long $a#=12$: ` : 변수명에 특수문자(`$`, `#`) 사용 부적절, 할당 연산자 `=` 누락, 끝에 불필요한 `:` 사용.</Error>
+            <Solution>`long a = 12;` (변수명 수정)</Solution>
+          </SubPart>
+          <SubPart id="3">
+            <Error>`if(a# > 3); y = a2/4:` : 변수명 `a#`, `a2` 부적절, `if` 조건문 뒤 세미콜론 오류, 끝에 불필요한 `:` 사용, 정수 나눗셈 가능성.</Error>
+            <Solution>`if (a >= 3) { y = (double)a / 4.0; }` (변수명 수정 및 올바른 `if` 구문, 실수 나눗셈 처리)</Solution>
+          </SubPart>
+          <SubPart id="4">
+            <Error>`System.out.print(Hi, "" "", y);` : `print` 메소드는 여러 인자를 쉼표로 받아 출력하지 않음. 문자열 연결 필요.</Error>
+            <Solution>`System.out.println(Hi + " " + y);`</Solution>
+          </SubPart>
+        </Answer>
+      </SubQuestion>
+      <SubQuestion id="최종 수정 코드">
+        <Answer type="code">
+          <Explanation>위 분석을 바탕으로, 주어진 실행 내용을 만족하는 오류 없는 자바 코드 예시입니다.</Explanation>
+          <Code language="java"><![CDATA[
+public class SyntaxCorrection {
+    public static void main(String[] args) {
+        // 필요한 변수 선언 및 초기화 (변수명 수정 및 타입 지정)
+        long a = 12L; // long 타입 명시를 위해 L 접미사 사용 가능 (선택사항)
+        double y = 0.0; // 나눗셈 결과를 저장할 변수 (double로 선언)
+        String hi = "안녕"; // String 타입, 큰따옴표 사용
+
+        // 1) 변수 a의 값이 3 이상이면 4로 나눈다.
+        if (a >= 3) { // 올바른 if 구문
+            // 실수 나눗셈을 위해 형변환 또는 4.0 사용
+            y = (double)a / 4.0;
+        }
+
+        // 2) hi에 저장된 문자열과 위 1)의 값을 화면 출력한다.
+        // 문자열 연결 연산자(+) 사용
+        System.out.println(hi + ", 계산된 값: " + y);
+    }
+}
+          ]]></Code>
+        </Answer>
+      </SubQuestion>
+    </Problem>
+
+    <Problem number="I-[4]">
+      <Question>[4] 다음을 코드로 표현하시오
+1) 정수형 변수 m의 값을 하나 증가(3가지 방법 모두 표현)
+2) 점수(jumsu)가 80 보다 크고, 90 이하이다.
+3) m의 값이 홀수이면 odd 라고 출력
+4) m의 값이 80과 같지 않으면 Good 을, 그렇지 않으면 Bad 출력</Question>
+      <Explanation>각 서술문을 해당하는 자바 코드로 표현하는 문제입니다.</Explanation>
+      <SubQuestion id="1) m 값 증가 (3가지)">
+        <Answer type="code"><Code language="java"><![CDATA[
+int m = 0; // 예시를 위한 초기화
+m = m + 1; // 방법 1
+m += 1;    // 방법 2 (복합 대입 연산자)
+m++;       // 방법 3 (증감 연산자)
+// ++m; 도 가능합니다.
+        ]]></Code></Answer>
+      </SubQuestion>
+      <SubQuestion id="2) 점수 범위 조건">
+        <Answer type="code"><Code language="java"><![CDATA[
+int jumsu = 85; // 예시를 위한 초기화
+if (jumsu > 80 && jumsu <= 90) {
+    // 조건 만족 시 실행할 내용
+}
+        ]]></Code><Explanation>`&&` 연산자는 '그리고'(AND)를 의미합니다.</Explanation></Answer>
+      </SubQuestion>
+      <SubQuestion id="3) 홀수 판별 및 출력">
+        <Answer type="code"><Code language="java"><![CDATA[
+if (m % 2 != 0) { // 2로 나눈 나머지가 0이 아니면 홀수
+    System.out.println("odd");
+}
+        ]]></Code></Answer>
+      </SubQuestion>
+      <SubQuestion id="4) 값 비교 및 출력">
+        <Answer type="code"><Code language="java"><![CDATA[
+if (m != 80) { // '같지 않다' 비교 연산자 != 사용
+    System.out.println("Good");
+} else {
+    System.out.println("Bad");
+}
+// 또는 조건(삼항) 연산자 사용:
+// System.out.println((m != 80) ? "Good" : "Bad");
+        ]]></Code></Answer>
+      </SubQuestion>
+    </Problem>
+
+    <Problem number="I-[5]">
+      <Question>[5] 10 부터 4씩 증가하여 100 미만의 값을 모두 출력하는 프로그램을 작성하라. (for 문으로 주요부분만.. 변수 생성도 for 문을 통해, 변수이름은 k로)</Question>
+      <InterpretationSteps>
+          <Step id="반복 조건 설정">
+              <Requirement>10부터 시작하여 100 미만까지 반복한다.</Requirement>
+              <Interpretation>`for` 문의 초기값은 `k=10`, 반복 조건은 `k < 100` 으로 설정합니다.</Interpretation>
+          </Step>
+          <Step id="증가 방식 설정">
+              <Requirement>값을 4씩 증가시킨다.</Requirement>
+              <Interpretation>`for` 문의 증감식은 `k += 4` 또는 `k = k + 4` 로 설정합니다.</Interpretation>
+          </Step>
+          <Step id="출력">
+              <Requirement>각 반복에서 변수 k의 값을 출력한다.</Requirement>
+              <Interpretation>반복문 몸통 안에서 `System.out.print(k + " ");` 와 같이 현재 k 값을 출력합니다. (값을 옆으로 나열하기 위해 `print` 사용)</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>for문의 초기화, 조건, 증감식을 이용하여 요구사항을 구현한 코드의 핵심 부분입니다.</Explanation>
+        <Code language="java"><![CDATA[
+// 주요 부분
+for (int k = 10; k < 100; k += 4) { // k는 10부터 99까지, 4씩 증가
+    System.out.print(k + " "); // 현재 k 값 출력 (옆으로 나열)
+}
+System.out.println(); // 모든 출력 후 줄바꿈
+// 출력 예시: 10 14 18 ... 98
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="I-[6]">
+      <Question>[6] 위 [5]의 내용을 while 문으로 작성</Question>
+      <InterpretationSteps>
+          <Step id="초기화">
+              <Requirement>반복을 시작할 변수 k를 10으로 설정한다.</Requirement>
+              <Interpretation>`while` 문 시작 전에 변수를 초기화해야 합니다: `int k = 10;`</Interpretation>
+          </Step>
+          <Step id="반복 조건 설정">
+              <Requirement>k가 100 미만인 동안 반복을 계속한다.</Requirement>
+              <Interpretation>`while` 문의 조건식으로 `k < 100` 을 사용합니다: `while (k < 100)`</Interpretation>
+          </Step>
+          <Step id="몸통 및 증감 처리">
+              <Requirement>반복문 몸통 안에서 현재 k 값을 출력하고, 그 다음 k 값을 4 증가시킨다.</Requirement>
+              <Interpretation>`while` 문 내부에서 값을 출력 (`System.out.print(k + " ");`)하고, **반드시 k 값을 증가시키는 코드 (`k += 4;`)**를 넣어 무한 루프를 방지해야 합니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>while문을 사용하여 동일한 작업을 수행하는 코드의 핵심 부분입니다. 초기화, 조건 확인, 증감 처리가 for문과 다른 위치에서 이루어집니다.</Explanation>
+        <Code language="java"><![CDATA[
+int k = 10; // 반복문 시작 전 초기화
+while (k < 100) { // 반복 조건 확인
+    System.out.print(k + " "); // 현재 k 값 출력
+    k += 4; // k 값 4 증가 (반복문 탈출 조건에 영향을 줌)
+}
+System.out.println(); // 모든 출력 후 줄바꿈
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+  </ProblemGroup>
+
+  <ProblemGroup name="II. 기본 문제">
+
+    <Problem number="II-[1]~[6]">
+      <Question>
+[1] 클래스의 이름은 JavaExam 으로 한다. 내부에 기본메소드를 두며, 아래 [2]-[5] 까지의 내용을 모두 넣어 하나의 자바 프로그램으로 작성한다.
+[2] 정수형(각 크기는 4바이트) 배열을 위한 레퍼런스 변수 m을 만든다 (반드시 m 으로 할 것, 다른 이름 안됨, 초기값 넣지 말고 변수만을 생성)
+[3] 7개의 연속된 기억공간을 생성하고 이의 레퍼런스 값을 [2]의 m에 넣는다.
+[4] 12, 98, 33, 24, 65, 77, 42의 값을 순서대로 [3]의 배열에 저장
+[5] 모든 값을 출력(배열크기에 대한 메소드 이용)
+[6] for 문을 이용하여 위 [4]의 배열 중, 50 이상인 값을 다음과 같이 출력하는 코딩 (형식: 98-65-77- @fin@)
+      </Question>
+      <InterpretationSteps>
+          <Step id="[1] 클래스/메인 메소드">
+              <Requirement>클래스 이름은 `JavaExam`, 내부에 `main` 메소드.</Requirement>
+              <Interpretation>기본 자바 프로그램 구조를 만듭니다: `public class JavaExam { public static void main(String[] args) { ... } }`</Interpretation>
+          </Step>
+          <Step id="[2] 배열 참조 변수 선언">
+              <Requirement>정수형(4바이트) 배열 참조 변수 `m` 선언 (초기값 없음).</Requirement>
+              <Interpretation>4바이트 정수형은 `int`입니다. 참조 변수만 선언합니다: `int[] m;`</Interpretation>
+          </Step>
+          <Step id="[3] 배열 메모리 할당">
+              <Requirement>7개의 정수 저장 공간 생성 후 `m`에 연결.</Requirement>
+              <Interpretation>`new` 연산자를 사용하여 7개의 `int` 공간을 할당합니다: `m = new int[7];`</Interpretation>
+          </Step>
+          <Step id="[4] 배열 값 초기화">
+              <Requirement>주어진 7개의 정수 값을 순서대로 배열 `m`에 저장.</Requirement>
+              <Interpretation>각 인덱스(0부터 6까지)에 값을 할당합니다: `m[0] = 12; m[1] = 98; ... m[6] = 42;`</Interpretation>
+          </Step>
+          <Step id="[5] 전체 값 출력">
+              <Requirement>배열 `m`의 모든 값을 출력. 배열 크기는 `length` 속성을 이용.</Requirement>
+              <Interpretation>`for` 문과 `m.length`를 사용하여 배열 전체를 순회하며 각 요소 `m[i]`를 출력합니다. 예를 들어 `for (int i = 0; i < m.length; i++) { System.out.print(m[i] + " "); }` 와 같이 할 수 있습니다.</Interpretation>
+          </Step>
+          <Step id="[6] 조건부 출력">
+              <Requirement>`for` 문으로 배열 `m`을 순회하며 50 이상인 값을 찾아 지정된 형식(값-값-...)으로 출력하고, 마지막에 `@fin@`를 붙인다.</Requirement>
+              <Interpretation>배열을 순회하며 `if (m[i] >= 50)` 조건을 확인합니다. 참일 경우 `System.out.print(m[i] + "-");` 와 같이 출력합니다. 모든 반복이 끝난 후 `@fin@`를 출력합니다 (`System.out.print("@fin@");`). 마지막 요소 뒤의 `-`를 제거하려면 추가적인 로직(예: 첫 번째 출력인지 확인)이 필요하지만, 문제의 출력 예시(`98-65-77-55-@fin@`)는 마지막 값 뒤에도 `-`가 있는 형태이므로 그대로 구현해도 될 것 같습니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>요구사항 [1]부터 [6]까지를 모두 반영한 완전한 자바 프로그램 코드입니다.</Explanation>
+        <Code language="java"><![CDATA[
+public class JavaExam { // [1] 클래스 정의
+    public static void main(String[] args) { // [1] main 메소드
+
+        // [2] 정수형 배열 참조 변수 m 선언
+        int[] m;
+
+        // [3] 7개의 정수 저장 공간 생성 및 m에 할당
+        m = new int[7];
+
+        // [4] 배열에 값 저장
+        m[0] = 12;
+        m[1] = 98;
+        m[2] = 33;
+        m[3] = 24;
+        m[4] = 65;
+        m[5] = 77;
+        m[6] = 42;
+
+        // [5] 모든 값을 출력 (배열 크기 이용)
+        System.out.print("배열 전체 값: ");
+        for (int i = 0; i < m.length; i++) {
+            System.out.print(m[i] + " "); // 값과 공백 출력
+        }
+        System.out.println(); // 줄바꿈
+
+        // [6] 50 이상인 값을 지정된 형식으로 출력
+        System.out.print("50 이상인 값: ");
+        for (int i = 0; i < m.length; i++) {
+            if (m[i] >= 50) {
+                System.out.print(m[i] + "-"); // 50 이상이면 값과 '-' 출력
+            }
+        }
+        System.out.print("@fin@"); // 마지막에 @fin@ 출력
+        System.out.println(); // 최종 줄바꿈
+    }
+}
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="II-[7]">
+      <Question>[7] (1) 위 자바 파일의 이름은 무엇인가? (확장명 포함) (2) 컴파일 완료된 파일의 이름은 무엇인가? (확장명 포함)</Question>
+      <Explanation>자바 프로그램의 소스 파일과 컴파일된 파일의 이름 규칙에 대한 질문입니다.</Explanation>
+      <SubQuestion id="(1) 소스 파일 이름">
+        <Answer type="text">
+          <Explanation>자바 소스 코드 파일의 이름은 `public`으로 선언된 클래스의 이름과 반드시 일치해야 하며, 확장자는 `.java`입니다.</Explanation>
+          <FileName>JavaExam.java</FileName>
+        </Answer>
+      </SubQuestion>
+      <SubQuestion id="(2) 컴파일된 파일 이름">
+        <Answer type="text">
+          <Explanation>자바 컴파일러(`javac`)가 소스 파일을 컴파일하면, 클래스 정의마다 별도의 바이트코드 파일이 생성됩니다. 파일 이름은 클래스 이름과 동일하며, 확장자는 `.class`입니다.</Explanation>
+          <FileName>JavaExam.class</FileName>
+        </Answer>
+      </SubQuestion>
+    </Problem>
+
+  </ProblemGroup>
+
+  <ProblemGroup name="III. 확장 문제 (코드만 작성)">
+
+    <Problem number="III-[1]">
+      <Question>[1] 앞서 II-[2],[3]을 하나의 문장으로 작성하시오.</Question>
+      <Answer type="code">
+        <Explanation>정수형 배열 참조 변수 선언과 7개의 공간 할당을 한 문장으로 합친 것입니다.</Explanation>
+        <Code language="java"><![CDATA[
+int[] m = new int[7];
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="III-[2]">
+      <Question>[2] 앞서 II-[2],[3],[4]를 하나의 문장으로 작성</Question>
+      <Answer type="code">
+        <Explanation>배열 선언, 공간 할당, 그리고 초기값 지정을 모두 한 문장으로 처리한 것입니다.</Explanation>
+        <Code language="java"><![CDATA[
+int[] m = {12, 98, 33, 24, 65, 77, 42};
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="III-[3]">
+      <Question>[3] 앞서 II-[5](배열 전체 값 출력)를 for each 문으로 작성</Question>
+      <Answer type="code">
+        <Explanation>향상된 for문(for-each)을 사용하여 배열 `m`의 모든 요소를 간결하게 순회하며 출력하는 코드입니다.</Explanation>
+        <Code language="java"><![CDATA[
+System.out.print("배열 전체 값 (for-each): ");
+for (int value : m) { // 배열 m의 각 요소를 value 변수에 순서대로 받음
+    System.out.print(value + " "); // 현재 요소 값 출력
+}
+System.out.println(); // 줄바꿈
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="III-[4]">
+      <Question>[4] II-[4]의 배열에서 30 이상인 값의 갯수를 구하여 출력하는 코드.(주요코드)</Question>
+       <InterpretationSteps>
+          <Step id="변수 초기화">
+              <Requirement>갯수를 셀 변수를 0으로 초기화한다.</Requirement>
+              <Interpretation>갯수를 누적할 정수형 변수를 선언하고 0으로 설정합니다: `int count = 0;`</Interpretation>
+          </Step>
+          <Step id="배열 순회 및 조건 확인">
+              <Requirement>배열 `m`의 모든 요소를 확인하며, 값이 30 이상인지 검사한다.</Requirement>
+              <Interpretation>`for`문 (일반 또는 for-each)으로 배열을 순회합니다. 각 요소 `value`에 대해 `if (value >= 30)` 조건을 확인합니다.</Interpretation>
+          </Step>
+          <Step id="갯수 증가">
+              <Requirement>조건을 만족하는 요소를 찾을 때마다 갯수 변수의 값을 1 증가시킨다.</Requirement>
+              <Interpretation>`if`문이 참일 경우, `count++;` 또는 `count = count + 1;` 코드를 실행합니다.</Interpretation>
+          </Step>
+           <Step id="결과 출력">
+              <Requirement>반복이 끝난 후, 최종적으로 계산된 갯수를 화면에 출력한다.</Requirement>
+              <Interpretation>`System.out.println("30 이상인 값의 갯수: " + count);` 와 같이 결과를 출력합니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>배열을 순회하며 조건을 만족하는 요소의 수를 세는 코드의 핵심 부분입니다.</Explanation>
+        <Code language="java"><![CDATA[
+// 배열 m이 {12, 98, 33, 24, 65, 77, 42} 로 초기화되어 있다고 가정
+int count = 0; // 갯수를 세기 위한 변수 초기화
+for (int value : m) { // 배열 m의 각 요소를 순회
+    if (value >= 30) { // 값이 30 이상인지 확인
+        count++; // 조건 만족 시 count 증가
+    }
+}
+System.out.println("30 이상인 값의 갯수: " + count); // 최종 갯수 출력
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+  </ProblemGroup>
+
+  <ProblemGroup name="IV. 응용 문제">
+
+    <Problem number="IV-[1]">
+      <Question>
+[1] Hello 클래스 :
+① 생성시 2개의 정수 값을 a, b로 읽고 이를 내부 필드 a,b 에 보관.
+② sum 이라는 메소드는 위 ①로 주어진 필드 a,b의 합을 구하고 결과를 리턴
+③ showSum 메소드는 위 ②를 호출하여 결과를 화면에 출력 (출력 형식은 후속 문제 참조: a + b = 합계)
+      </Question>
+      <InterpretationSteps>
+          <Step id="① 필드 및 생성자">
+              <Requirement>클래스 내부에 정수형 필드 `a`, `b`를 선언하고, 생성자에서 두 정수 값을 받아 이 필드들에 저장한다.</Requirement>
+              <Interpretation>`class Hello { int a; int b; public Hello(int a, int b) { this.a = a; this.b = b; } ... }` 와 같이 필드와 생성자를 정의합니다.</Interpretation>
+          </Step>
+          <Step id="② sum 메소드">
+              <Requirement>`sum` 메소드는 필드 `a`와 `b`의 합을 계산하여 정수형으로 반환한다.</Requirement>
+              <Interpretation>반환 타입이 `int`인 `sum` 메소드를 정의합니다: `public int sum() { return this.a + this.b; }`</Interpretation>
+          </Step>
+          <Step id="③ showSum 메소드">
+              <Requirement>`showSum` 메소드는 `sum()` 메소드를 호출하여 합계 결과를 얻고, "a + b = 합계" 형식으로 화면에 출력한다.</Requirement>
+              <Interpretation>반환 타입이 `void`인 `showSum` 메소드를 정의합니다. 내부에서 `int result = sum();` 와 같이 합계를 구하고, `System.out.println(this.a + " + " + this.b + " = " + result);` 형식으로 출력합니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>요구사항 ①, ②, ③을 만족하는 Hello 클래스의 정의입니다.</Explanation>
+        <Code language="java"><![CDATA[
+class Hello {
+    // ① 내부 필드 a, b
+    int a;
+    int b;
+
+    // ① 생성자: 매개변수 a, b를 받아 필드에 저장
+    public Hello(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    // ② sum 메소드: 필드 a와 b의 합을 반환
+    public int sum() {
+        return this.a + this.b;
+    }
+
+    // ③ showSum 메소드: sum() 결과를 형식에 맞춰 출력
+    public void showSum() {
+        int result = sum(); // sum() 메소드 호출
+        System.out.println(this.a + " + " + this.b + " = " + result);
+    }
+
+    // IV-[4]에서 추가될 오버로딩된 생성자 (아래 참고)
+    // public Hello(int a) { ... }
+}
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="IV-[2]">
+      <Question>
+[2] MyTest 클래스 : 기본 메소드(main)를 가지고 있음.
+② 기본 메소드에서 [1]의 객체를 생성. 객체이름은 test1, 매개변수 a, b 값은 각각 3, 2로 한다.
+③ 생성된 객체에서 showSum 메소드를 이용하여, 다음과 같이 출력: `3 + 2 = 5`
+      </Question>
+      <InterpretationSteps>
+          <Step id="클래스 및 메인">
+              <Requirement>`MyTest` 클래스와 그 안에 `main` 메소드를 정의한다.</Requirement>
+              <Interpretation>`public class MyTest { public static void main(String[] args) { ... } }` 구조를 만듭니다.</Interpretation>
+          </Step>
+          <Step id="객체 생성">
+              <Requirement>`main` 메소드 안에서 `Hello` 클래스의 객체 `test1`을 생성하고, 생성자에 3과 2를 전달한다.</Requirement>
+              <Interpretation>`Hello test1 = new Hello(3, 2);` 코드를 작성합니다.</Interpretation>
+          </Step>
+           <Step id="메소드 호출 및 출력 확인">
+              <Requirement>`test1` 객체의 `showSum()` 메소드를 호출하여 요구된 형식의 출력이 나오는지 확인한다.</Requirement>
+              <Interpretation>`test1.showSum();` 코드를 작성하고, 실행 시 "3 + 2 = 5"가 출력될 것을 예상합니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>MyTest 클래스 내 main 메소드에서 Hello 객체(test1)를 생성하고 showSum 메소드를 호출하는 코드입니다.</Explanation>
+        <Code language="java"><![CDATA[
+// Hello 클래스가 정의되어 있다고 가정
+// class Hello { ... }
+
+public class MyTest {
+    public static void main(String[] args) {
+        // ② Hello 객체 test1 생성 (a=3, b=2)
+        Hello test1 = new Hello(3, 2);
+
+        // ③ test1 객체의 showSum 메소드 호출
+        test1.showSum(); // "3 + 2 = 5" 출력 예상
+    }
+}
+        ]]></Code>
+      </Answer>
+      <SubQuestion id="출력 결과">
+         <Answer type="output">
+            <Output><![CDATA[
+3 + 2 = 5
+            ]]></Output>
+         </Answer>
+      </SubQuestion>
+    </Problem>
+
+    <Problem number="IV-[3]">
+      <Question>
+① [2]의 답안(MyTest 클래스) 내, 적절한 위치에 test2 의 객체를 추가한다. 이때 매개변수 값은 a 는 4, b는 7로 한다.
+② 값을 출력하는 해당 메소드를 호출함으로써, [2], [3]의 실행으로 다음과 같이 출력되도록 코드를 작성한다: `3 + 2 = 5` \n `4 + 5 = 9`
+      </Question>
+       <InterpretationSteps>
+          <Step id="[3]-① 객체 추가">
+              <Requirement>`MyTest`의 `main` 메소드 내부에 `Hello` 객체 `test2`를 생성하고, 생성자에 4와 7을 전달한다.</Requirement>
+              <Interpretation>`test1` 객체 생성 코드 다음 줄 등에 `Hello test2 = new Hello(4, 7);` 코드를 추가합니다.</Interpretation>
+          </Step>
+           <Step id="[3]-② 메소드 호출">
+              <Requirement>`test2` 객체의 `showSum()` 메소드를 호출하여 출력이 추가되도록 한다.</Requirement>
+              <Interpretation>`test1.showSum();` 호출 다음에 `test2.showSum();` 코드를 추가합니다.</Interpretation>
+          </Step>
+          <Step id="출력 확인 및 불일치점">
+              <Requirement>최종 출력이 문제에 제시된 `3 + 2 = 5` 다음 `4 + 5 = 9`와 일치해야 한다.</Requirement>
+              <Interpretation>`test2`는 `new Hello(4, 7)`로 생성되었으므로, `test2.showSum()`은 "4 + 7 = 11"을 출력할 것입니다. 이는 문제의 출력 예시 "4 + 5 = 9"와 다릅니다. 문제의 지시(a=4, b=7)와 출력 예시가 불일치합니다. 여기서는 **지시된 매개변수 값(4, 7)을 따르되, 출력 예시와의 차이점을 명시**하겠습니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>MyTest 클래스에 test2 객체 생성을 추가하고 showSum 호출을 추가한 코드입니다. 문제의 지시(a=4, b=7)와 출력 예시(4+5=9)가 불일치하여, 지시에 따른 실제 예상 출력(4+7=11)을 기준으로 작성되었습니다.</Explanation>
+        <Code language="java"><![CDATA[
+// Hello 클래스가 정의되어 있다고 가정
+
+public class MyTest {
+    public static void main(String[] args) {
+        // [2]의 내용
+        Hello test1 = new Hello(3, 2);
+        test1.showSum(); // "3 + 2 = 5" 출력
+
+        // [3]-① test2 객체 추가 (a=4, b=7)
+        Hello test2 = new Hello(4, 7);
+
+        // [3]-② test2 객체의 showSum 메소드 호출
+        test2.showSum(); // "4 + 7 = 11" 출력 예상 (문제의 예시 "4 + 5 = 9"와 다름)
+    }
+}
+        ]]></Code>
+      </Answer>
+      <SubQuestion id="예상 출력">
+        <Answer type="output">
+            <Explanation>위 코드를 실행했을 때의 실제 예상 출력입니다. 문제의 예시와는 다릅니다.</Explanation>
+            <Output><![CDATA[
+3 + 2 = 5
+4 + 7 = 11
+            ]]></Output>
+         </Answer>
+      </SubQuestion>
+    </Problem>
+
+    <Problem number="IV-[4]">
+      <Question>[4] 생성시 매개변수로 a 만을 읽어 이를 필드 a 에 보관하며, b는 무조건 7의 값을 부여하는 생성자를 추가(위 [1]의 답안(Hello 클래스) 내부의 적절한 곳에 [4]의 답을 삽입)</Question>
+      <InterpretationSteps>
+          <Step id="오버로딩 개념">
+              <Requirement>기존 생성자(`Hello(int a, int b)`)와 다른 매개변수 목록을 가지는 새로운 생성자를 `Hello` 클래스에 추가한다.</Requirement>
+              <Interpretation>이는 **생성자 오버로딩(Constructor Overloading)**에 해당합니다. 같은 이름의 생성자를 여러 개 정의하되, 매개변수의 개수나 타입이 달라야 합니다.</Interpretation>
+          </Step>
+           <Step id="새 생성자 정의">
+              <Requirement>새 생성자는 정수형 매개변수 `a` 하나만 받고, 내부적으로 필드 `a`에는 전달받은 값을, 필드 `b`에는 고정값 7을 할당한다.</Requirement>
+              <Interpretation>`public Hello(int a) { this.a = a; this.b = 7; }` 와 같은 생성자 코드를 `Hello` 클래스 내부에 추가합니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+       <Answer type="code">
+         <Explanation>Hello 클래스에 매개변수 a 하나만 받는 생성자를 추가하는 코드입니다. 이 코드는 기존 Hello 클래스 정의 내부에 추가되어야 합니다.</Explanation>
+         <Code language="java"><![CDATA[
+// 이 코드는 Hello 클래스 내부에 추가합니다.
+
+// [4] 매개변수 a만 받는 오버로딩된 생성자
+public Hello(int a) {
+    this.a = a;  // 전달받은 a를 필드 a에 저장
+    this.b = 7;  // 필드 b에는 무조건 7을 저장
+}
+
+/*
+전체 Hello 클래스 구조 (IV-[1] 내용 포함):
+
+class Hello {
+    int a;
+    int b;
+
+    // 기존 생성자
+    public Hello(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    // -----> 여기에 위에 작성된 새로운 생성자 Hello(int a)를 추가 <-----
+
+    public int sum() {
+        return this.a + this.b;
+    }
+
+    public void showSum() {
+        int result = sum();
+        System.out.println(this.a + " + " + this.b + " = " + result);
+    }
+}
+*/
+         ]]></Code>
+       </Answer>
+    </Problem>
+
+    <Problem number="IV-[5]">
+      <Question>
+① [2]의 답안(MyTest 클래스) 내, 적절한 위치에 [4]를 이용한 test3의 객체를 추가한다. 이때 매개변수 값은 a는 1로 한다.
+② 값을 출력하는 해당 메소드를 호출함으로써, [2],[3],[5]의 실행으로 다음과 같이 출력되도록 코드를 작성한다: `3 + 2 = 5` \n `4 + 5 = 9` \n `1 + 7 = 8`
+      </Question>
+      <InterpretationSteps>
+          <Step id="[5]-① 객체 추가">
+              <Requirement>`MyTest`의 `main` 메소드 내부에, 새로 추가된 `Hello(int a)` 생성자를 사용하여 `test3` 객체를 생성하고, 생성자에 1을 전달한다.</Requirement>
+              <Interpretation>`test2` 객체 생성 및 메소드 호출 다음 줄 등에 `Hello test3 = new Hello(1);` 코드를 추가합니다.</Interpretation>
+          </Step>
+           <Step id="[5]-② 메소드 호출">
+              <Requirement>`test3` 객체의 `showSum()` 메소드를 호출하여 출력이 추가되도록 한다.</Requirement>
+              <Interpretation>`test2.showSum();` 호출 다음에 `test3.showSum();` 코드를 추가합니다.</Interpretation>
+          </Step>
+           <Step id="최종 출력 확인">
+              <Requirement>모든 실행 결과가 문제에 제시된 세 줄의 출력과 일치해야 한다.</Requirement>
+              <Interpretation>`test1`은 "3 + 2 = 5", `test2`는 (지시대로라면) "4 + 7 = 11", `test3`은 "1 + 7 = 8"을 출력합니다. 이는 문제의 두 번째 출력 예시("4 + 5 = 9")와 여전히 불일치합니다. 최종 코드와 예상 출력은 **실제 실행될 코드 로직을 기준**으로 작성하고, 불일치점을 다시 명시하겠습니다.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="code">
+        <Explanation>MyTest 클래스에 test3 객체 생성을 추가하고 showSum 호출을 추가하여 모든 객체의 결과를 출력하는 최종 코드입니다. IV-[3]에서 언급된 출력 불일치 문제가 여전히 존재합니다.</Explanation>
+        <Code language="java"><![CDATA[
+// Hello 클래스가 (오버로딩된 생성자 포함하여) 정의되어 있다고 가정
+
+public class MyTest {
+    public static void main(String[] args) {
+        // [2]의 내용
+        Hello test1 = new Hello(3, 2);
+        test1.showSum(); // "3 + 2 = 5" 출력
+
+        // [3]의 내용
+        Hello test2 = new Hello(4, 7); // a=4, b=7 사용
+        test2.showSum(); // "4 + 7 = 11" 출력 예상
+
+        // [5]-① test3 객체 추가 (a=1), 오버로딩된 생성자 사용
+        Hello test3 = new Hello(1); // b는 자동으로 7이 됨
+
+        // [5]-② test3 객체의 showSum 메소드 호출
+        test3.showSum(); // "1 + 7 = 8" 출력 예상
+    }
+}
+        ]]></Code>
+      </Answer>
+      <SubQuestion id="최종 예상 출력">
+         <Answer type="output">
+            <Explanation>위 코드를 실행했을 때의 실제 예상되는 최종 출력입니다. 문제의 예시("4 + 5 = 9")와는 두 번째 줄이 다릅니다.</Explanation>
+            <Output><![CDATA[
+3 + 2 = 5
+4 + 7 = 11
+1 + 7 = 8
+            ]]></Output>
+         </Answer>
+      </SubQuestion>
+    </Problem>
+
+    <Problem number="IV-[6]">
+      <Question>[6] 오버로딩이란 무엇인가?</Question>
+      <Answer type="definition">
+          <Definition term="오버로딩 (Overloading)">
+             <Explanation>하나의 클래스 내에서 **같은 이름의 메소드나 생성자를 여러 개 정의**하는 것을 말합니다. 이때, 각각의 메소드(또는 생성자)는 반드시 **매개변수의 개수나 타입 또는 순서가 달라야** 합니다. 반환 타입만 다른 것은 오버로딩으로 인정되지 않습니다. 오버로딩을 통해 같은 기능을 수행하지만 다양한 종류의 입력 값을 처리할 수 있는, 사용하기 편리한 클래스를 만들 수 있습니다. (예: `println` 메소드는 정수, 실수, 문자열 등 다양한 타입을 출력하기 위해 오버로딩되어 있습니다.)</Explanation>
+          </Definition>
+      </Answer>
+    </Problem>
+
+  </ProblemGroup>
+
+</ExamSolutions>
