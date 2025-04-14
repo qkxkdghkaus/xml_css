@@ -163,7 +163,7 @@ if (m != 80) { // '같지 않다' 비교 연산자 != 사용
       <InterpretationSteps>
           <Step id="반복 조건 설정">
               <Requirement>10부터 시작하여 100 미만까지 반복한다.</Requirement>
-              <Interpretation>`for` 문의 초기값은 `k=10`, 반복 조건은 `k < 100` 으로 설정합니다.</Interpretation>
+            <Interpretation>`for` 문의 초기값은 `k=10`, 반복 조건은 `k &lt; 100` 으로 설정합니다.</Interpretation>
           </Step>
           <Step id="증가 방식 설정">
               <Requirement>값을 4씩 증가시킨다.</Requirement>
