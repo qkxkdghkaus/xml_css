@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="s.css"?>
+<ExamSolutions>
+  <ProblemGroup name="주관식 문제">
+
+    <Problem number="1">
+      <Question>
+        다음의 조건을 만족하며, 하나의 클래스로 작성되는 프로그램을 코딩하시오.
+        [1] 클래스의 이름은 dataFind 로 한다. 내부에 기본메소드 main을 두고, 아래 [2] 이하의 내
+        용을 작성한다.
+        [2] 실수형(각 크기는 4바이트) 배열을 위한 레퍼런스 변수 d를 만든다(반드시 d!. 다른 이름
+        안됨)
+        [3] 8개의 연속된 기억공간을 생성하고 이의 레퍼런스 값을 [2]의 d에 넣는다.
+        [4] 12.5, 98.7, 33.5, 24.7, 65.4, 77.4, 42.8, 55.3의 값을 순서대로 [3]의 배열에 저장
+        [5] for 문을 이용하여 위 [4]의 배열 중, 50 이상인 값을 다음과 같이 출력하는 코딩 작성 (형식: 98.7/65.4/77.4/55.3 / &lt;End&gt;).
+        [6] 위 자바 파일의 이름은 무엇인가? (확장명 포함해서 기술)
+        [7] 위 [2],[3]을 하나의 문장으로 작성
+        [8] 위 [2],[3],[4]를 하나의 문장으로 작성
+        [9] 위 [5]를 for each 문으로 작성(해당하는 for문과 for문 내의 주요 내용만 기술)
+      </Question>
+
+      <InterpretationSteps>
+        <Step id="[1]">
+          <Requirement>클래스 이름은 dataFind, 내부에 main 메소드 포함.</Requirement>
+          <Interpretation>자바 기본 구조 생성: `public class dataFind { public static void main(String[] args) { ... } }`</Interpretation>
+        </Step>
+        <Step id="[2]">
+          <Requirement>실수형(4바이트) 배열 레퍼런스 변수 d.</Requirement>
+          <Interpretation>4바이트 실수는 `float` 이므로, `float` 타입 배열 변수 선언: `float[] d;`</Interpretation>
+        </Step>
+        <Step id="[3]">
+          <Requirement>8개의 연속된 기억공간 생성 후 d에 할당.</Requirement>
+          <Interpretation>배열 메모리 할당: `d = new float[8];`</Interpretation>
+        </Step>
+        <Step id="[4]">
+          <Requirement>주어진 값들을 순서대로 배열에 저장.</Requirement>
+          <Interpretation>배열 초기화. 각 인덱스에 값 할당 (`d[0]=12.5f; ...`) 또는 배열 리터럴 `{...}` 사용. `float` 리터럴에는 `f` 접미사 필요.</Interpretation>
+        </Step>
+        <Step id="[5]">
+          <Requirement>for문으로 50 이상 값 필터링 및 지정된 형식으로 출력.</Requirement>
+          <Interpretation>배열 순회: `for (int i = 0; i &lt; d.length; i++)`. 조건 확인: `if (d[i] &gt;= 50)`. 출력: `System.out.print(d[i] + "/");`. 루프 후 마무리 출력: `System.out.println(" &lt;End&gt;");`.</Interpretation>
+        </Step>
+        <Step id="Note for [6]-[9]">
+            <Interpretation>조건 [6]~[9]는 위 [1]~[5]를 바탕으로 작성된 코드에 대한 부가 질문 또는 변형 요구사항임. 각각 별도의 답변으로 처리.</Interpretation>
+        </Step>
+      </InterpretationSteps>
+
+      <SubQuestion id="[1]~[5] 코딩">
+        <Answer type="code">
+          <Code language="java"><![CDATA[
+public class dataFind { // [1]
+    public static void main(String[] args) { // [1]
+        // 해석 [2],[3],[4] 종합 (아래 [8] 참고)
+        float[] d = {12.5f, 98.7f, 33.5f, 24.7f, 65.4f, 77.4f, 42.8f, 55.3f};
+
+        // 해석 [5]
+        for (int i = 0; i < d.length; i++) {
+            if (d[i] >= 50) {
+                System.out.print(d[i] + "/");
+            }
+        }
+        System.out.println(" <End>");
+
+        // [9] for each 문 결과 확인용 (부가 사항)
+        System.out.println("--- for each 문 결과 ---");
+        for (float value : d) {
+            if (value >= 50) {
+                System.out.print(value + "/");
+            }
+        }
+        System.out.println(" <End>");
+    }
+}
+          ]]></Code>
+        </Answer>
+      </SubQuestion>
+      <SubQuestion id="[6] 파일 이름">
+        <Answer type="text">
+          <FileName>dataFind.java</FileName>
+          (public 클래스 이름과 동일, 확장자 .java)
+        </Answer>
+      </SubQuestion>
+      <SubQuestion id="[7] [2],[3] 한 문장">
+        <Answer type="code">
+          <Code language="java"><![CDATA[
+float[] d = new float[8];
+          ]]></Code>
+        </Answer>
+      </SubQuestion>
+      <SubQuestion id="[8] [2],[3],[4] 한 문장">
+        <Answer type="code">
+          <Code language="java"><![CDATA[
+float[] d = {12.5f, 98.7f, 33.5f, 24.7f, 65.4f, 77.4f, 42.8f, 55.3f};
+          ]]></Code>
+        </Answer>
+      </SubQuestion>
+      <SubQuestion id="[9] for each 문 작성">
+        <Answer type="code">
+          <Code language="java"><![CDATA[
+for (float value : d) {
+    if (value >= 50) {
+        System.out.print(value + "/");
+    }
+}
+System.out.println(" <End>");
+          ]]></Code>
+        </Answer>
+      </SubQuestion>
+    </Problem>
+
+    <Problem number="2">
+      <Question>
+        다음의 조건을 만족하는 클래스를 작성하시오
+        [1] 삼각형의 도형에 대해, SamM 라는 이름의 클래스, 다음 [2]~[5]는 이 클래스 내부에 존
+        재
+        [2] 밑변과 세로변의 값을 보관하기 위한 정수형 변수 m.n를 둔다
+        [3] 생성시 밑변과 세로변의 값을 정수형의 매개변수 m.n 으로 읽고 이를 상기 [2]의 변수에
+        보관
+        [4] Myun() 이라는 메소드를 만든다. 이 메소드는 상기 [2]의 m,n을 이용하여, 면적을 구하고, 이를 double형으로 되돌려준다. (삼각형의 면적 = 1/2 * 밑변 * 세로변 = 1/2*m*n)
+        [5] ShowM()의 메소드가 있다. ShowM() 메소드를 호출하면, 상기 [4]의 Myun()의 호출을 통
+        해 계산된 면적을 되돌려받아, 다음과 같이 출력(위 [2]에서 m이 2 이고, n이 3 이라면, 다
+        음과 같이 밑변, 세로변, 면적이 출력된다.) m:2, n:3, 면적:3.0
+      </Question>
+
+      <InterpretationSteps>
+          <Step id="[1]">
+              <Requirement>클래스 이름 SamM.</Requirement>
+              <Interpretation>클래스 정의 시작: `class SamM { ... }`</Interpretation>
+          </Step>
+          <Step id="[2]">
+              <Requirement>정수형 멤버 변수 m, n.</Requirement>
+              <Interpretation>클래스 내부에 필드 선언: `int m; int n;`</Interpretation>
+          </Step>
+          <Step id="[3]">
+              <Requirement>생성자에서 정수 매개변수 m, n을 받아 멤버 변수에 저장.</Requirement>
+              <Interpretation>생성자 정의: `public SamM(int m, int n) { this.m = m; this.n = n; }`. 필드와 매개변수 구분을 위해 `this` 사용.</Interpretation>
+          </Step>
+          <Step id="[4]">
+              <Requirement>Myun() 메소드: 면적(0.5*m*n) 계산 후 double 반환.</Requirement>
+              <Interpretation>메소드 정의: `public double Myun() { return 0.5 * this.m * this.n; }`. 실수 연산을 위해 0.5 사용 또는 형변환 필요.</Interpretation>
+          </Step>
+          <Step id="[5]">
+              <Requirement>ShowM() 메소드: Myun() 호출 후 결과와 m, n을 지정 형식으로 출력.</Requirement>
+              <Interpretation>메소드 정의: `public void ShowM() { double area = Myun(); System.out.println("m:" + this.m + ", n:" + this.n + ", 면적:" + area); }`.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+
+      <Answer type="code">
+        <Code language="java"><![CDATA[
+class SamM { // [1]
+    int m; // [2]
+    int n; // [2]
+
+    // [3] 생성자
+    public SamM(int m, int n) {
+        this.m = m;
+        this.n = n;
+    }
+
+    // [4] 면적 계산 메소드
+    public double Myun() {
+        return 0.5 * this.m * this.n; // 공식
+    }
+
+    // [5] 정보 출력 메소드
+    public void ShowM() {
+        double area = Myun(); // [4] 호출
+        System.out.println("m:" + this.m + ", n:" + this.n + ", 면적:" + area); // 출력 형식
+    }
+}
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="3">
+      <Question>
+        위 문제 2.을 이용하여 다음을 답하시오
+        [1] 상기 2의 SamM 클래스를 상속받는 SamC 라는 이름의 클래스.
+        [2] 내부에 높이를 보관하는 정수형 변수 h를 필드로 놓고, 이를 은닉시킨다.
+        [3] 생성자는 매개변수로 밑변, 높이 그리고 높이를 각각 정수형 변수 m.n과 h로 받는다.
+        [4] 위 [3]에서 h는 자신의 은닉된 정수형 변수 h에 넣고, m.n은 부모클래스(2-[2])로 넘긴다.
+        [5] 위 [3]의 h와 2번 문제 2-[4]를 곱하여 부피를 구하고 이를 double형으로 되돌려주는 Bupi() 라는 이름의 메소드를 만든다. (부피는 Myun() * h)
+        [6] ShowV()의 메소드가 있고, 이 메소드가 호출되면, 위 [5]를 호출한 결과값을 출력 (예: Bupi 113.24)
+      </Question>
+
+      <InterpretationSteps>
+          <Step id="[1]">
+              <Requirement>SamM 클래스를 상속받는 SamC 클래스.</Requirement>
+              <Interpretation>클래스 정의 및 상속: `class SamC extends SamM { ... }`</Interpretation>
+          </Step>
+          <Step id="[2]">
+              <Requirement>정수형 변수 h 필드, 은닉화.</Requirement>
+              <Interpretation>private 접근 제어자를 사용하여 필드 선언: `private int h;`</Interpretation>
+          </Step>
+          <Step id="[3]">
+              <Requirement>생성자에서 m, n, h를 정수 매개변수로 받음.</Requirement>
+              <Interpretation>생성자 시그니처 정의: `public SamC(int m, int n, int h) { ... }`</Interpretation>
+          </Step>
+          <Step id="[4]">
+              <Requirement>생성자에서 h는 자체 저장, m, n은 부모 클래스로 전달.</Requirement>
+              <Interpretation>부모 생성자 호출: `super(m, n);`. 자신 필드 초기화: `this.h = h;`</Interpretation>
+          </Step>
+          <Step id="[5]">
+              <Requirement>Bupi() 메소드: 부피(Myun() * h) 계산 후 double 반환.</Requirement>
+              <Interpretation>메소드 정의: `public double Bupi() { return Myun() * this.h; }`. 상속받은 `Myun()` 메소드 활용.</Interpretation>
+          </Step>
+          <Step id="[6]">
+              <Requirement>ShowV() 메소드: Bupi() 호출 결과 지정 형식 출력.</Requirement>
+              <Interpretation>메소드 정의: `public void ShowV() { double volume = Bupi(); System.out.println("Bupi " + volume); }`.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+
+      <Answer type="code">
+        <Code language="java"><![CDATA[
+// [1] SamM 상속
+class SamC extends SamM {
+    // [2] 높이 h 은닉화
+    private int h;
+
+    // [3] 생성자
+    public SamC(int m, int n, int h) {
+        // [4] 부모 생성자 호출 및 h 저장
+        super(m, n);
+        this.h = h;
+    }
+
+    // [5] 부피 계산 메소드
+    public double Bupi() {
+        // [13] 부피 = Myun() * h
+        return Myun() * this.h; // 부모의 Myun() 사용
+    }
+
+    // [6] 부피 출력 메소드
+    public void ShowV() {
+        double volume = Bupi(); // [5] 호출
+        System.out.println("Bupi " + volume);
+    }
+
+    /* 문제 4-[4] 위한 오버라이딩 메소드 (참고용)
+    @Override
+    public double Myun() {
+        // 변경된 계산식: 1/2 * (m + n)
+        // super.m, super.n 접근 (같은 패키지 가정)
+        return 0.5 * (super.m + super.n);
+    }
+    */
+}
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="4">
+      <Question>
+        앞서의 문제 3.를 이용하여 다음을 답하시오
+        [1] myjava 라는 클래스 내에 main의 메소드가 있고, 이 메소드에 다음([2]~[4])를 코딩
+        [2] 3의 SamC 클래스를 이용하여 라는 이름의 객체를 생성(이때 밑변 6, 세로변 4. 높이 5로 함)
+        [3]위 [2]로부터, 밑면적과 체적을 화면에 출력함.(단, 주어진 메소드를 이용해야함.)
+        [4] 상기 2-[4]의 계산식을 1/2*m*n 에서 1/2*(m+n)으로 변경하고 싶다. 1의 부모클래스를 변경하지않고 3의 클래스에서 변경된 수식을 적용시키는 방법에 대해 언급하고, 해당하는 코드를 상세히 작성한 후, 그 작성된 코드가 들어갈 위치를 화살표로 표시하시오.
+      </Question>
+
+      <InterpretationSteps>
+        <Step id="[1]">
+          <Requirement>myjava 클래스 내부에 main 메소드.</Requirement>
+          <Interpretation>클래스 및 main 메소드 정의: `public class myjava { public static void main(String[] args) { ... } }`</Interpretation>
+        </Step>
+        <Step id="[2]">
+          <Requirement>main 내에서 SamC 객체 생성 (m=6, n=4, h=5).</Requirement>
+          <Interpretation>객체 생성 및 초기화: `SamC samC_instance = new SamC(6, 4, 5);`</Interpretation>
+        </Step>
+        <Step id="[3]">
+          <Requirement>생성된 객체의 밑면적과 체적(부피)을 주어진 메소드로 출력.</Requirement>
+          <Interpretation>메소드 호출: `samC_instance.ShowM();` (면적 포함 정보 출력), `samC_instance.ShowV();` (부피 출력).</Interpretation>
+        </Step>
+        <Step id="Note for [4]">
+            <Interpretation>조건 [4]는 생성된 코드에 대한 수정 요구사항임. 부모 변경 없이 자식 클래스에서 메소드 동작을 변경하는 방법을 묻고 있음. 이는 메소드 오버라이딩(Overriding)에 해당하며, 별도의 설명과 코드로 답변.</Interpretation>
+        </Step>
+      </InterpretationSteps>
+
+      <Answer type="code">
+        <Code language="java"><![CDATA[
+// SamM, SamC 클래스가 정의되어 있다고 가정
+
+public class myjava { // [1]
+    public static void main(String[] args) { // [1]
+
+        // [2] SamC 객체 생성
+        SamC samC_instance = new SamC(6, 4, 5);
+
+        // [3] 밑면적 및 체적 출력
+        // ShowM()은 면적 정보를 출력, ShowV()는 부피 정보를 출력
+        System.out.print("밑면적 정보: ");
+        samC_instance.ShowM(); // m:6, n:4, 면적:12.0 (SamC에 Myun() 오버라이딩 안했을 경우)
+                                // 또는 m:6, n:4, 면적:5.0 (SamC에 Myun() 오버라이딩 했을 경우)
+        System.out.print("체적 정보: ");
+        samC_instance.ShowV(); // Bupi 60.0 (오버라이딩 안했을 경우)
+                                // 또는 Bupi 25.0 (오버라이딩 했을 경우)
+    }
+}
+        ]]></Code>
+      </Answer>
+      <SubQuestion id="[4] 오버라이딩 설명 및 코드">
+         <Answer type="explanation">
+           <Explanation>
+             부모 클래스(SamM)를 변경하지 않고 자식 클래스(SamC)에서 메소드(Myun)의 계산 로직을 변경하려면, 자식 클래스(SamC)에서 해당 메소드를 '메소드 오버라이딩(Method Overriding)'합니다. 즉, SamC 내부에 부모와 동일한 시그니처(이름, 매개변수 타입, 반환 타입)를 가진 Myun() 메소드를 새로 정의하고, 내부 구현을 변경된 계산식 `1/2*(m+n)`으로 작성합니다.
+           </Explanation>
+           <Code language="java"><![CDATA[
+// 이 코드는 SamC 클래스 내부에 추가되어야 합니다.
+
+@Override // 부모 메소드를 재정의함을 명시 (선택사항이지만 권장)
+public double Myun() {
+    // 변경된 계산식: 1/2 * (m + n)
+    // 부모 클래스의 m, n 변수 접근 (접근 제어자 확인 필요. protected 또는 package-private)
+    return 0.5 * (super.m + super.n); // super.m 또는 this.m (같은 패키지 가정)
+}
+
+/*
+코드 위치:
+class SamC extends SamM {
+    private int h;
+    public SamC(int m, int n, int h) { ... }
+    public double Bupi() { ... }
+    public void ShowV() { ... }
+
+    // -----> 여기에 Myun() 오버라이딩 코드를 추가 <-----
+    @Override
+    public double Myun() {
+        return 0.5 * (super.m + super.n);
+    }
+}
+*/
+           ]]></Code>
+         </Answer>
+      </SubQuestion>
+    </Problem>
+
+    <Problem number="5">
+      <Question>
+        다음과 같은 인터페이스와 추상클래스에 대해, 사각형의 내용과 같이 출력되도록 (A)의 빈칸을 채우시오.
+        (출력 순서: "Hi, My abstract!", "Hi, My Interface!")
+        (main 메소드가 들어가는 클래스의 이름은 myJava로 한다.)
+        <![CDATA[
+        interface My_IF { void infa_func(); }
+        abstract class My_abst { abstract void abst_func(); }
+
+        // (A) 빈칸 시작
+        // ... 클래스 정의 ...
+        // (A) 빈칸 끝
+
+        public class myJava { // 클래스 이름은 myJava로 가정
+            public static void main(String[] args) {
+                IfClass my_inf = new IfClass();
+                AtClass my_abs = new AtClass();
+                // 원본 코드 호출 순서 (출력과 다름): my_inf.infa_func(); my_abs.abst_func();
+                // 요구되는 출력 순서에 맞춘 호출:
+                my_abs.abst_func();
+                my_inf.infa_func();
+            }
+        }
+        ]]>
+      </Question>
+
+      <InterpretationSteps>
+          <Step id="Interface My_IF">
+              <Requirement>인터페이스 My_IF는 void infa_func() 메소드를 가짐.</Requirement>
+              <Interpretation>My_IF를 구현(implements)하는 클래스는 반드시 infa_func() 메소드를 재정의(override)하여 구체적인 내용을 작성해야 함.</Interpretation>
+          </Step>
+          <Step id="Abstract Class My_abst">
+              <Requirement>추상 클래스 My_abst는 abstract void abst_func() 추상 메소드를 가짐.</Requirement>
+              <Interpretation>My_abst를 상속(extends)받는 (추상이 아닌) 클래스는 반드시 abst_func() 추상 메소드를 재정의(override)하여 구체적인 내용을 작성해야 함.</Interpretation>
+          </Step>
+          <Step id="main Logic">
+              <Requirement>main 메소드에서 IfClass 객체와 AtClass 객체를 생성하고 각각의 함수(infa_func, abst_func)를 호출함.</Requirement>
+              <Interpretation>IfClass는 My_IF를 구현해야 하고, AtClass는 My_abst를 상속받아야 함. 각 클래스 내에는 인터페이스/추상 메소드가 구현되어 있어야 함.</Interpretation>
+          </Step>
+           <Step id="Output Requirement">
+              <Requirement>출력 순서는 "Hi, My abstract!" 다음 "Hi, My Interface!".</Requirement>
+              <Interpretation>AtClass의 abst_func() 메소드는 "Hi, My abstract!"를 출력하도록, IfClass의 infa_func() 메소드는 "Hi, My Interface!"를 출력하도록 구현해야 함. main에서의 호출 순서도 출력 순서에 맞게 조정 필요.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+
+      <Answer type="code">
+        <Code language="java"><![CDATA[
+// 인터페이스 정의
+interface My_IF {
+    void infa_func();
+}
+
+// 추상 클래스 정의
+abstract class My_abst {
+    abstract void abst_func();
+}
+
+// (A) 부분 시작 ========
+// 인터페이스 구현 클래스
+class IfClass implements My_IF {
+    @Override
+    public void infa_func() {
+        System.out.println("Hi, My Interface!");
+    }
+}
+
+// 추상 클래스 상속 및 구현 클래스
+class AtClass extends My_abst {
+    @Override
+    void abst_func() {
+        System.out.println("Hi, My abstract!");
+    }
+}
+// (A) 부분 끝 ==========
+
+// main 메소드를 포함하는 클래스 (문제에서 myJava로 지정)
+public class myJava5 { // 클래스 이름 중복 회피
+    public static void main(String[] args) {
+        IfClass my_inf = new IfClass();
+        AtClass my_abs = new AtClass();
+
+        // 문제의 출력 순서("Hi, My abstract!" -> "Hi, My Interface!")에 맞춘 호출 순서
+        my_abs.abst_func(); // "Hi, My abstract!" 출력
+        my_inf.infa_func(); // "Hi, My Interface!" 출력
+    }
+}
+        ]]></Code>
+      </Answer>
+    </Problem>
+
+    <Problem number="6">
+      <Question>
+        위 문제 2.를 이용하여 다음을 답하시오
+        * myJava 라는 클래스 내에 main의 메소드가 있고, 이 메소드에 다음([1]~[6])을 코딩
+        [1] s라는 이름의 어레이리스트 객체를 만들되 자료형은 위 2.의 SamM 클래스로 한다.
+        [2] 다음의 자료를 위 문제 2-[2]에서 (밑변, 세로변)으로 다음 값을 갖는 SamM 객체를 만들어 어레이리스트에 추가한다. (2,4), (3,3), (5,4), (1,8)
+        [3] 인덱스 2번의 객체를 제거한다.
+        [4] 인덱스 1번에 SamM 객체를 삽입한다. 이때 요소는 (7.9)로 한다.
+        [5] for문과 size()메소드를 이용하여 각 요소에 대한 면적을 차례로 출력한다 (위2-[5]의 메소드를 이용)
+        [6] 화면에 출력되는 결과를 적으시오
+      </Question>
+
+      <InterpretationSteps>
+          <Step id="[1]">
+              <Requirement>SamM 타입의 ArrayList 객체 s 생성.</Requirement>
+             <Interpretation>ArrayList import: `import java.util.ArrayList;`. 객체 생성: `ArrayList&lt;SamM&gt; s = new ArrayList&lt;SamM&gt;();`.</Interpretation>
+          </Step>
+          <Step id="[2]">
+              <Requirement>주어진 값으로 SamM 객체 4개 생성 후 ArrayList에 추가.</Requirement>
+              <Interpretation>객체 생성 및 추가 반복: `s.add(new SamM(2, 4)); s.add(new SamM(3, 3)); ...`. 추가 후 인덱스는 0, 1, 2, 3.</Interpretation>
+          </Step>
+          <Step id="[3]">
+              <Requirement>인덱스 2번 객체 제거.</Requirement>
+              <Interpretation>ArrayList의 remove 메소드 사용: `s.remove(2);`. (5,4) 객체 제거됨. 리스트 상태: [(2,4), (3,3), (1,8)]</Interpretation>
+          </Step>
+          <Step id="[4]">
+              <Requirement>인덱스 1번에 SamM(7,9) 객체 삽입.</Requirement>
+              <Interpretation>ArrayList의 add(index, element) 메소드 사용: `s.add(1, new SamM(7, 9));`. 기존 인덱스 1 이후 요소들 밀려남. 리스트 상태: [(2,4), (7,9), (3,3), (1,8)]</Interpretation>
+          </Step>
+          <Step id="[5]">
+              <Requirement>for문과 size()로 각 요소의 면적(ShowM 사용) 출력.</Requirement>
+            <Interpretation>반복문: `for (int i = 0; i &lt; s.size(); i++)`. 요소 접근 및 메소드 호출: `s.get(i).ShowM();`.</Interpretation>
+          </Step>
+          <Step id="[6]">
+              <Requirement>화면 출력 결과 예측.</Requirement>
+              <Interpretation>위 [5]의 실행 결과를 순서대로 기록.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+
+      <SubQuestion id="[1]~[5] 코딩">
+          <Answer type="code">
+            <Code language="java"><![CDATA[
+import java.util.ArrayList; // [1] ArrayList 사용 import
+
+// 문제 2에서 정의한 SamM 클래스가 필요합니다.
+// class SamM { ... }
+
+public class myJava6 { // 클래스 이름 중복 회피
+    public static void main(String[] args) {
+
+        // [1] ArrayList 생성
+        ArrayList<SamM> s = new ArrayList<SamM>();
+
+        // [2] 객체 추가
+        s.add(new SamM(2, 4)); // 인덱스 0
+        s.add(new SamM(3, 3)); // 인덱스 1
+        s.add(new SamM(5, 4)); // 인덱스 2
+        s.add(new SamM(1, 8)); // 인덱스 3
+
+        // [3] 인덱스 2 제거
+        s.remove(2); // 상태: [(2,4), (3,3), (1,8)]
+
+        // [4] 인덱스 1 삽입
+        s.add(1, new SamM(7, 9)); // 상태: [(2,4), (7,9), (3,3), (1,8)]
+
+        // [5] for문으로 출력
+        System.out.println("--- ArrayList 요소 출력 ---");
+        for (int i = 0; i < s.size(); i++) {
+            s.get(i).ShowM(); // 각 요소의 ShowM() 호출
+        }
+    }
+}
+            ]]></Code>
+          </Answer>
+      </SubQuestion>
+      <SubQuestion id="[6] 출력 결과">
+        <Answer type="output">
+          <Output><![CDATA[
+--- ArrayList 요소 출력 ---
+m:2, n:4, 면적:4.0
+m:7, n:9, 면적:31.5
+m:3, n:3, 면적:4.5
+m:1, n:8, 면적:4.0
+          ]]></Output>
+        </Answer>
+      </SubQuestion>
+    </Problem>
+
+  </ProblemGroup>
+
+  <ProblemGroup name="추가 보완 문제-1">
+    <Problem number="[1]">
+      <Question>기본 데이터형 나열, 설명, 크기 표</Question>
+      <Answer type="table">
+        <Table>
+          <Row header="true">
+            <Cell>데이터형</Cell>
+            <Cell>설명</Cell>
+            <Cell>크기(byte)</Cell>
+            <Cell>값의 범위(대략)</Cell>
+          </Row>
+          <Row><Cell>byte</Cell><Cell>정수</Cell><Cell>1</Cell><Cell>-128 ~ 127</Cell></Row>
+          <Row><Cell>short</Cell><Cell>정수</Cell><Cell>2</Cell><Cell>-32,768 ~ 32,767</Cell></Row>
+          <Row><Cell>int</Cell><Cell>정수(기본)</Cell><Cell>4</Cell><Cell>약 -21억 ~ 21억</Cell></Row>
+          <Row><Cell>long</Cell><Cell>정수(큼)</Cell><Cell>8</Cell><Cell>매우 큰 범위</Cell></Row>
+          <Row><Cell>float</Cell><Cell>실수</Cell><Cell>4</Cell><Cell>±3.4e-38 ~ ±3.4e+38</Cell></Row>
+          <Row><Cell>double</Cell><Cell>실수(기본)</Cell><Cell>8</Cell><Cell>±1.7e-308 ~ ±1.7e+308</Cell></Row>
+          <Row><Cell>char</Cell><Cell>문자(유니코드)</Cell><Cell>2</Cell><Cell>0 ~ 65,535</Cell></Row>
+          <Row><Cell>boolean</Cell><Cell>논리(참/거짓)</Cell><Cell>1 (이론상)</Cell><Cell>true, false</Cell></Row>
+        </Table>
+      </Answer>
+    </Problem>
+    <Problem number="[2]">
+      <Question>명령프롬프트 명령어 3개 이상 나열 및 설명</Question>
+      <Answer type="list">
+        <Item name="cd">Change Directory: 현재 디렉토리 변경.</Item>
+        <Item name="dir">Directory: 현재 디렉토리 파일/폴더 목록 표시 (Windows), ls (Linux/macOS).</Item>
+        <Item name="javac">Java Compiler: .java 파일을 .class 파일로 컴파일.</Item>
+        <Item name="java">Java Virtual Machine Launcher: .class 파일을 실행.</Item>
+        <Item name="mkdir">Make Directory: 새 디렉토리 생성.</Item>
+      </Answer>
+    </Problem>
+    <Problem number="[3]">
+      <Question>IDE, JVM, JDK, WORA, API 설명</Question>
+      <Answer type="definitions">
+        <Definition term="IDE">통합 개발 환경. 코드 편집, 디버깅, 컴파일 등을 통합 제공.</Definition>
+        <Definition term="JVM">자바 가상 머신. 컴파일된 자바 바이트코드를 실행하는 환경.</Definition>
+        <Definition term="JDK">자바 개발 키트. JVM, 컴파일러 등 개발 도구 포함.</Definition>
+        <Definition term="WORA">Write Once, Run Anywhere. 한 번 작성하면 JVM이 있는 어디서든 실행 가능.</Definition>
+        <Definition term="API">Application Programming Interface. 프로그램 기능을 사용할 수 있도록 제공하는 인터페이스(함수, 규칙 등).</Definition>
+      </Answer>
+    </Problem>
+    <Problem number="[4]">
+      <Question>코드 에러 찾기</Question>
+      <SubQuestion id="1) float x; x = 3.4;">
+          <Answer type="explanation">
+            <Error>3.4는 double 리터럴. float에 할당 불가.</Error>
+            <Solution>x = 3.4f; 또는 x = (float)3.4;</Solution>
+          </Answer>
+      </SubQuestion>
+      <SubQuestion id="2) string k; k = 'hello';">
+          <Answer type="explanation">
+            <Error>1. `string` 타입 없음 (`String` 사용). 2. 문자열은 큰따옴표(`"`) 사용.</Error>
+            <Solution>String k; k = "hello";</Solution>
+          </Answer>
+      </SubQuestion>
+      <SubQuestion id="3) int 6var = 2;">
+          <Answer type="explanation">
+            <Error>변수명은 숫자로 시작 불가.</Error>
+            <Solution>int var6 = 2;</Solution>
+          </Answer>
+      </SubQuestion>
+      <SubQuestion id="4) if(x > 6); y = k;">
+          <Answer type="explanation">
+            <Error>if 조건문 뒤 세미콜론(;) 때문에 if 몸통이 비어있고, y = k; 는 조건과 무관하게 실행됨.</Error>
+            <Solution>if (x > 6) y = k; 또는 if (x > 6) { y = k; }</Solution>
+          </Answer>
+      </SubQuestion>
+    </Problem>
+    <Problem number="[5]">
+      <Question>설명을 코드로 표현</Question>
+      <SubQuestion id="1) 변수 값 1 증가 (count)">
+          <Answer type="code"><Code language="java">count++;</Code></Answer>
+      </SubQuestion>
+      <SubQuestion id="2) k = x + (x+2) / (x*y + 3)">
+          <Answer type="code"><Code language="java">k = x + (double)(x + 2) / (x * y + 3); // 정수 나눗셈 방지</Code></Answer>
+      </SubQuestion>
+      <SubQuestion id="3) 점수(jumsu)가 80 이하이거나 90 이상">
+          <Answer type="code"><Code language="java">if (jumsu &lt;= 80 || jumsu &gt;= 90)</Code></Answer> </SubQuestion>
+      <SubQuestion id="4) x가 짝수면 'even' 출력">
+          <Answer type="code"><Code language="java">if (x % 2 == 0) { System.out.println("even"); }</Code></Answer>
+      </SubQuestion>
+      <SubQuestion id="5) x가 100이면 'OK', 아니면 'No' 출력">
+          <Answer type="code"><Code language="java">System.out.println((x == 100) ? "OK" : "No");</Code></Answer>
+      </SubQuestion>
+    </Problem>
+  </ProblemGroup>
+
+  <ProblemGroup name="추가 보완 문제-2">
+    <Problem number="[1]">
+        <Question>0부터 3씩 증가하여 100 미만 값 출력 (for문)</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+for (int i = 0; i < 100; i += 3) {
+    System.out.print(i + " ");
+}
+System.out.println();
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[2]">
+        <Question>0부터 3씩 증가, 100보다 크거나 같으면 중단 (while문)</Question> <Answer type="code"><Code language="java"><![CDATA[
+int j = 0;
+while (j < 100) { // 100 미만일 동안 반복
+    System.out.print(j + " ");
+    j += 3;
+}
+System.out.println();
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[3]">
+        <Question>3 + 13 + 23 + ... + 1013 합계 구하기</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+int sum = 0;
+for (int i = 3; i <= 1013; i += 10) { // 3부터 1013까지 10씩 증가
+    sum += i;
+}
+System.out.println("합계: " + sum);
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[4]">
+        <Question>1/(2*3) + 4/(5*6) + ... + 97/(98*99) 계산 (소수점 2자리)</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+double totalSum = 0.0;
+// 분자: 1, 4, ..., 97 (공차 3) => 1 + i*3
+// 분모 첫번째: 2, 5, ..., 98 (공차 3) => 2 + i*3
+// 분모 두번째: 3, 6, ..., 99 (공차 3) => 3 + i*3
+// 항 개수: (97-1)/3 + 1 = 33개 (i는 0부터 32까지)
+for (int i = 0; i < 33; i++) {
+    double numerator = 1 + i * 3;
+    double denominator1 = 2 + i * 3;
+    double denominator2 = 3 + i * 3;
+    totalSum += numerator / (denominator1 * denominator2); // 실수 나눗셈
+}
+System.out.printf("계산 결과: %6.2f\n", totalSum); // 전체 6자리, 소수점 2자리
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[5]">
+        <Question>문제 1-1 배열 d에 대해 합계, 평균, 최대, 최소, 범위(30~70) 개수/합계, 홀수(정수부) 개수</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+float[] d = {12.5f, 98.7f, 33.5f, 24.7f, 65.4f, 77.4f, 42.8f, 55.3f};
+float sum = 0;
+float maxVal = d[0]; // 초기값을 배열의 첫 요소로 설정
+float minVal = d[0]; // 초기값을 배열의 첫 요소로 설정
+int rangeCount = 0; // 30 이상 70 미만 개수
+float rangeSum = 0;   // 30 이상 70 미만 합계
+int oddCount = 0; // 정수부가 홀수인 개수
+
+for (float val : d) {
+    sum += val; // 합계 누적
+    if (val > maxVal) maxVal = val; // 최대값 갱신
+    if (val < minVal) minVal = val; // 최소값 갱신
+
+    // 특정 범위 값 (30 <= val < 70)
+    if (val >= 30 && val < 70) {
+        rangeCount++;
+        rangeSum += val;
+    }
+
+    // 홀수 값 개수 (정수 부분 기준)
+    if ((int)val % 2 != 0) { // 실수를 int로 캐스팅 후 홀수 판별
+        oddCount++;
+    }
+}
+float average = sum / d.length; // 평균 계산
+
+System.out.println("합계: " + sum);
+System.out.println("평균: " + average);
+System.out.println("최대값: " + maxVal);
+System.out.println("최소값: " + minVal);
+System.out.println("범위(30<=x<70) 개수: " + rangeCount);
+System.out.println("범위(30<=x<70) 합계: " + rangeSum);
+System.out.println("홀수(정수부) 개수: " + oddCount);
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[6]">
+        <Question>문제 1-1 배열 d의 0, 3, 6번 인덱스 값 출력</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+// float[] d = {12.5f, 98.7f, 33.5f, 24.7f, 65.4f, 77.4f, 42.8f, 55.3f};
+System.out.println("0번 인덱스 값: " + d[0]); // 12.5
+System.out.println("3번 인덱스 값: " + d[3]); // 24.7
+System.out.println("6번 인덱스 값: " + d[6]); // 42.8
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[7]">
+        <Question>'hello' 출력 메소드 hi 만들고 3회 호출</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+public class HelloPrinter {
+    // 'hello' 출력 메소드 정의
+    public static void hi() {
+        System.out.println("hello");
+    }
+
+    public static void main(String[] args) {
+        // hi 메소드 3회 호출
+        hi();
+        hi();
+        hi();
+    }
+}
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[8]">
+        <Question>2개 값 읽어 합을 sum 변수에 넣고 출력 (값은 임의 지정)</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+int value1 = 10; // 예시 값 1
+int value2 = 20; // 예시 값 2
+int sum;
+
+sum = value1 + value2; // 합 계산
+
+System.out.println("두 값의 합: " + sum); // 결과 출력
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[9]">
+        <Question>두 값의 합 구하는 메소드 hap 만들고 호출하여 출력</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+public class SumMethod {
+    // 두 정수의 합을 계산하여 반환하는 메소드
+    public static int hap(int a, int b) {
+        return a + b; // 합 반환
+    }
+
+    public static void main(String[] args) {
+        int value1 = 10;
+        int value2 = 20;
+        int result;
+
+        result = hap(value1, value2); // hap 메소드 호출
+
+        System.out.println("두 값의 합 (메소드 호출): " + result); // 결과 출력
+    }
+}
+        ]]></Code></Answer>
+    </Problem>
+    <Problem number="[10]"> <Question>문제 1-1 배열 넘겨받아 합계 리턴하는 메소드 만들고 호출 출력</Question>
+        <Answer type="code"><Code language="java"><![CDATA[
+public class ArraySumMethod {
+    // float 배열을 받아 합계를 계산하고 반환하는 메소드
+    public static float calculateSum(float[] arr) {
+        float sum = 0;
+        for (float val : arr) { // for-each문으로 배열 순회
+            sum += val; // 합계 누적
+        }
+        return sum; // 계산된 합계 반환
+    }
+
+    public static void main(String[] args) {
+        // 문제 1-1의 배열
+        float[] d = {12.5f, 98.7f, 33.5f, 24.7f, 65.4f, 77.4f, 42.8f, 55.3f};
+
+        // calculateSum 메소드 호출
+        float totalSum = calculateSum(d);
+
+        // 결과 출력
+        System.out.println("배열의 합계: " + totalSum);
+    }
+}
+        ]]></Code></Answer>
+    </Problem>
+  </ProblemGroup>
+
+  <ProblemGroup name="추가 보완 문제-3">
+    <Problem number="[1]">
+      <Question>문제 2의 SamM 객체 2개 만들어 지정된 형식으로 출력</Question>
+      <Answer type="code"><Code language="java"><![CDATA[
+// 문제 2의 SamM 클래스가 정의되어 있다고 가정
+
+// main 메소드 내 또는 적절한 위치
+SamM obj1 = new SamM(2, 3); // 첫 번째 객체 생성
+SamM obj2 = new SamM(4, 2); // 두 번째 객체 생성
+
+obj1.ShowM(); // 첫 번째 객체 정보 출력
+obj2.ShowM(); // 두 번째 객체 정보 출력
+// 출력 결과:
+// m:2, n:3, 면적:3.0
+// m:4, n:2, 면적:4.0
+      ]]></Code></Answer>
+    </Problem>
+    <Problem number="[2]">
+      <Question>문제 2의 SamM 객체 3개를 배열로 만들어 지정된 형식으로 출력</Question>
+      <Answer type="code"><Code language="java"><![CDATA[
+// 문제 2의 SamM 클래스가 정의되어 있다고 가정
+
+// main 메소드 내 또는 적절한 위치
+SamM[] samArray = new SamM[3]; // SamM 객체 3개를 담을 배열 선언 및 생성
+
+// 배열 요소에 객체 생성 및 할당
+samArray[0] = new SamM(2, 3);
+samArray[1] = new SamM(4, 2);
+samArray[2] = new SamM(1, 2);
+
+// 배열 순회하며 ShowM() 호출
+for (SamM sam : samArray) { // for-each 문 사용
+    sam.ShowM();
+}
+// 출력 결과:
+// m:2, n:3, 면적:3.0
+// m:4, n:2, 면적:4.0
+// m:1, n:2, 면적:1.0
+      ]]></Code></Answer>
+    </Problem>
+    <Problem number="[3]">
+      <Question>m과 n의 값을 은닉화하는 방법?</Question>
+      <InterpretationSteps>
+          <Step id="Encapsulation">
+              <Requirement>멤버 변수 m, n을 외부에서 직접 접근하지 못하도록 함 (은닉화).</Requirement>
+              <Interpretation>객체 지향의 캡슐화(Encapsulation) 원칙 적용. 멤버 변수의 접근 제어자를 `private`으로 변경.</Interpretation>
+          </Step>
+          <Step id="Access Control">
+              <Requirement>외부에서 은닉된 멤버 변수의 값을 읽거나 수정해야 할 필요가 있을 수 있음.</Requirement>
+              <Interpretation>`public` 접근 제어자를 가진 메소드, 즉 Getter(값 읽기)와 Setter(값 설정) 메소드를 제공하여 간접적으로 접근을 허용하고 제어함.</Interpretation>
+          </Step>
+      </InterpretationSteps>
+      <Answer type="explanation">
+        <Explanation>
+          멤버 변수 m과 n의 접근 제어자를 `private`으로 변경합니다. 이렇게 하면 클래스 외부에서 직접 접근이 불가능해집니다 (정보 은닉). 외부에서 이 변수들의 값을 읽거나 설정해야 할 경우, `public` 접근 제어자를 가진 **getter** (예: `getM()`, `getN()`) 및 **setter** (예: `setM(int m)`, `setN(int n)`) 메소드를 제공하여 통제된 방식으로 접근을 허용합니다.
+        </Explanation>
+        <Code language="java"><![CDATA[
+class SamM {
+    private int m; // private으로 변경하여 은닉화
+    private int n; // private으로 변경하여 은닉화
+
+    public SamM(int m, int n) {
+        this.m = m; // 생성자에서는 여전히 접근 가능
+        this.n = n;
+    }
+
+    // m 값을 외부에서 읽기 위한 getter 메소드
+    public int getM() {
+        return this.m;
+    }
+
+    // n 값을 외부에서 읽기 위한 getter 메소드
+    public int getN() {
+        return this.n;
+    }
+
+    // m 값을 외부에서 설정하기 위한 setter 메소드 (필요한 경우)
+    public void setM(int m) {
+        // 필요하다면 유효성 검사 추가 가능
+        this.m = m;
+    }
+
+    // n 값을 외부에서 설정하기 위한 setter 메소드 (필요한 경우)
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    public double Myun() {
+        // 클래스 내부에서는 private 멤버에 접근 가능
+        return 0.5 * this.m * this.n;
+        // 또는 getter 사용: return 0.5 * getM() * getN();
+    }
+
+    public void ShowM() {
+        // 클래스 내부에서는 private 멤버에 접근 가능
+        System.out.println("m:" + this.m + ", n:" + this.n + ", 면적:" + Myun());
+        // 또는 getter 사용: System.out.println("m:" + getM() + ", n:" + getN() + ", 면적:" + Myun());
+    }
+}
+        ]]></Code>
+      </Answer>
+    </Problem>
+  </ProblemGroup>
+
+</ExamSolutions>
